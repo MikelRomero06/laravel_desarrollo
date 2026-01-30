@@ -18,4 +18,8 @@ class Estudiante extends Model
     public function faculty(){
        return $this->belongsTo(Faculty::class);
     }
+
+    public function courses(){
+        return $this->belongsToMany(Course::class);
+    }
 }
