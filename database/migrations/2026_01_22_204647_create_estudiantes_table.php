@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('correo')->unique();
             $table->string('telefono');
             $table->integer('edad');
+
+            $table->foreignId('faculty_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
