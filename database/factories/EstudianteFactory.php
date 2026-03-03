@@ -2,22 +2,25 @@
 
 namespace Database\Factories;
 
+use App\Models\Faculty;
+use App\Models\Estudiante;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Estudiante>
- */
 class EstudianteFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            // Se cambió 'nombre' a 'nombres' para coincidir con tu migración
+            'nombres' => $this->faker->name(),
+            'facultad' => $this->faker->randomElement([
+                'ICC', 'CIVIL', 'INDUSTRIAL', 'MEDICINA', 'ENFERMERIA'
+            ]),
+            'correo' => $this->faker->unique()->safeEmail(),
+            'telefono' => $this->faker->phoneNumber(),
+            'edad' => $this->faker->numberBetween(17, 30), // Un rango más realista
+
+            'faculty_id' => Faculty::factory(),
         ];
     }
 }

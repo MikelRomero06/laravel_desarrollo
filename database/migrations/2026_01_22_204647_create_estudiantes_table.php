@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('telefono');
             $table->integer('edad');
 
-            $table->foreignId('faculty_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('faculty_id')->constrained('faculties')->cascadeOnDelete();
             $table->timestamps();
         });
     }

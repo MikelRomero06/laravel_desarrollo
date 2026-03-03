@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('curso_estudiante', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Esta ya es la Primary Key
 
             $table->foreignId('curso_id')->constrained()->cascadeOnDelete();
             $table->foreignId('estudiante_id')->constrained()->cascadeOnDelete();
-
 
             $table->timestamps();
         });

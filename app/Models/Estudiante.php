@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Profile;
 use App\Models\Faculty;//importamos el modelo
+use App\Models\cursos;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Estudiante extends Model
 {
-
+    use HasFactory;
     protected $fillable = ['nombre', 'facultad', 'correo', 'telefono'];
 
     public function profile(){
@@ -20,6 +22,6 @@ class Estudiante extends Model
     }
 
     public function courses(){
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(cursos::class);
     }
 }
